@@ -1,4 +1,4 @@
-from app import start_play, welcome, selection_validation
+from app import start_play, welcome
 
 
 welcome()
