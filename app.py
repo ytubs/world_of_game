@@ -1,24 +1,29 @@
-
 def welcome():
     print(f'Hi {input("Enter your Username: ")} and welcome to the World of Games: The Epic Journey')
 
+
 def start_play():
     games = ['Memory Game', 'Guess Game', 'Currency Roulette']
-    while True:
-        numbered_games= '\n'.join(f'{index + 1}. {game}' for index, game in enumerate(games))
-        selection = input(f'Select Game (enter number 1-{len(games)}): \n{numbered_games}\n')
-        if selection_validation(selection,games):
-            break
-        print("invalid input, try again")
-        print('''\n\n\n------------\n\n\n''')
-    difficulty = input('Enter disired difficulty (1-5): \n')
+    max_difficulty = 5
+    numbered_games = '\n'.join(f'{index + 1}. {game}' for index, game in enumerate(games))
+    get_user_input_validate_with_message(len(games), f'Select Game (enter number 1-{len(games)}): \n{numbered_games}\n')
+    get_user_input_validate_with_message(max_difficulty, 'Enter disired difficulty (1-5): \n')
 
-def selection_validation(selection, games):
+
+def number_validation(number, end_of_range):
     try:
-        index = int(selection) - 1
-        return 0 <= index < len(games)-1
+        number = int(number)
+        return number in range(1, end_of_range + 1)
     except ValueError:
         return False
 
 
+def get_user_input_validate_with_message(end_of_range, message="Enter selection"):
+    while True:
+        user_input = input(message)
+        if number_validation(user_input, end_of_range):
+            break
+        print("invalid input, try again")
+        print('''\n\n\n------------\n\n\n''')
 
+    return user_input
