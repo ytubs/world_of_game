@@ -4,7 +4,6 @@ import time
 from app import get_user_input_validate_with_message
 from app import selected_difficulty
 
-selected_difficulty = 5
 def generate_random_secret():
     print('Generating Ultra Secret random number...')
     time.sleep(2)
@@ -35,7 +34,6 @@ def play():
     else:
         print('You LOSE!!! HAHAHAH')
 
-play()
 
 
 
