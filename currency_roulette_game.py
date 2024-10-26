@@ -1,4 +1,4 @@
-import sys
+
 import random
 import requests
 
@@ -21,8 +21,8 @@ def get_exchange_rate():
 
 def get_money_interval():
     ils_value = random_usd * get_exchange_rate()
-    upper_bound = int(round(ils_value +(10-selected_difficulty)))
-    lower_bound = int(round(ils_value -(10-selected_difficulty)))
+    upper_bound = int(round(ils_value + (10-selected_difficulty)))
+    lower_bound = int(round(ils_value - (10-selected_difficulty)))
     return upper_bound,lower_bound
 
 
