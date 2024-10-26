@@ -19,12 +19,12 @@ def number_validation(number, end_of_range):
         return False
 
 
-def get_user_input_validate_with_message(end_of_range, message="Enter selection:\n"):
+def get_user_input_validate_with_message(end_of_range, message="Enter selection:\n", error_message='invalid input, try again'):
     while True:
-        user_input = int(input(message))
+        user_input = input(message)
         if number_validation(user_input, end_of_range):
             break
-        print("invalid input, try again")
-        print('''\n\n\n------------\n\n\n''')
+        print(f'\n{error_message}')
+        print('''\n------------\n''')
 
     return int(user_input)
