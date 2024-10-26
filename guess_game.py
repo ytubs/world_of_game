@@ -1,7 +1,7 @@
 import random
 import time
 
-from app import get_user_input_validate_with_message
+from utils import get_user_input_validate_with_message
 
 
 def generate_random_secret(difficulty):
@@ -13,7 +13,7 @@ def generate_random_secret(difficulty):
 
 
 def get_guess_from_user(difficulty):
-    return get_user_input_validate_with_message(difficulty, f"Submit your guess! Must be between 0 to {difficulty}\n", "input is invalid or out of bounds! Try again.")
+    return get_user_input_validate_with_message(difficulty, f"Submit your guess! Must be between 0 to {difficulty}\n", "input is invalid or out of bounds! Try again.",0)
 
 
 def compare_input_to_secret(secret, user_input):
@@ -27,6 +27,7 @@ def play(difficulty):
     We will now generating a secret number!
     ''')
     secret_number = generate_random_secret(difficulty)
+    print(secret_number)
     usr_input = get_guess_from_user(difficulty)
     if compare_input_to_secret(secret_number, usr_input):
         print('you are correct! You WIN!')

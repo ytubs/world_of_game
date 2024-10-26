@@ -2,14 +2,13 @@ import random
 import time
 import sys
 import os
+from utils import get_user_input_validate_with_message, screen_cleaner
 
-from app import get_user_input_validate_with_message
 
-
-difficulty = 4
 def generate_sequence(difficulty):
     sequence = [random.randint(1, 100) for _ in range(difficulty)]
     return sequence
+
 
 def get_list_from_user(difficulty):
     print('Try to enter the numbers that were shown!')
@@ -20,20 +19,9 @@ def get_list_from_user(difficulty):
 
 
 def is_list_equal(sequence, user_list):
-
     return sequence == user_list
 
-def clear_console():
-    if 'PYCHARM_HOSTED' in os.environ:
-        # If running in PyCharm
-        print("\n" * 1000)  # Print 1000 new lines to "clear" the console, not ideal but works..
-    else:
-        # For other environments (like terminal)
-        os.system('cls' if os.name == 'nt' else 'clear')
 
-def clear_last_line():
-    # Move the cursor up one line and clear that line
-    print("\033[F\033[K", end='')
 def play(difficulty):
     print('''Welcome to Memory Game!
         We will now show you a sequence of numbers, you will then need to submit the numbers you remember''')
@@ -45,8 +33,7 @@ def play(difficulty):
     print('\n---END OF SEQUENCE---')
 
     time.sleep(0.7)
-    # clear_last_line()
-    clear_console()
+    screen_cleaner()
 
     user_list = get_list_from_user(difficulty)
 
@@ -55,10 +42,4 @@ def play(difficulty):
     else:
         print('You LOSE!')
 
-
-
 # play(difficulty)
-
-
-
-

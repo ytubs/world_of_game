@@ -2,8 +2,7 @@
 import random
 import requests
 import time
-
-from app import get_user_input_validate_with_message
+from utils import get_user_input_validate_with_message
 
 random_usd = random.randint(1, 100)
 
@@ -46,7 +45,4 @@ def play(difficulty):
     if compare_results(difficulty):
         print(f"You win! your guess is within the range!")
     else:
-        print(f"You LOSE! Your guess is outside ")
-
-
-play(5)
+        print(f"You LOSE! Your guess is outside the allowed range! ")
