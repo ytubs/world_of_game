@@ -1,6 +1,7 @@
 import random
 import time
 
+from score import add_score
 from utils import get_user_input_validate_with_message
 
 
@@ -27,9 +28,9 @@ def play(difficulty):
     We will now generating a secret number!
     ''')
     secret_number = generate_random_secret(difficulty)
-    print(secret_number)
     usr_input = get_guess_from_user(difficulty)
     if compare_input_to_secret(secret_number, usr_input):
         print('you are correct! You WIN!')
+        add_score(difficulty)
     else:
         print('You LOSE!!!')

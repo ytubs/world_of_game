@@ -2,6 +2,8 @@
 import random
 import requests
 import time
+
+from score import add_score
 from utils import get_user_input_validate_with_message
 
 random_usd = random.randint(1, 100)
@@ -44,5 +46,6 @@ def play(difficulty):
     If you are close enough to the true ILS value, you win! Good luck.''')
     if compare_results(difficulty):
         print(f"You win! your guess is within the range!")
+        add_score(difficulty)
     else:
         print(f"You LOSE! Your guess is outside the allowed range! ")

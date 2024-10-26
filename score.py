@@ -30,4 +30,4 @@ def add_score(difficulty):
         f.writelines(lines)
 
 
-add_score(3)
+

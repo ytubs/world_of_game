@@ -2,6 +2,8 @@ import random
 import time
 import sys
 import os
+
+from score import add_score
 from utils import get_user_input_validate_with_message, screen_cleaner
 
 
@@ -39,6 +41,7 @@ def play(difficulty):
 
     if is_list_equal(sequence, user_list):
         print('Congrats! You win')
+        add_score(difficulty)
     else:
         print('You LOSE!')
 
